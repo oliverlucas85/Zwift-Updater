@@ -12,13 +12,13 @@
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ScriptName = Zwift Jersey Fetcher
-ScriptVersion = v1.0.0
+ScriptVersion = v1.0.1
 #SingleInstance Force
 #NoEnv
 
 url = https://raw.githubusercontent.com/desrod/zwift-jersey-fetcher/master/promo-codes.zhq
 
-KeyDelayFactor := 3 ;
+KeyDelayFactor := 5 ;
 
 ; Make sure we're sending input to the correct window
 ; or use ahk_exe ZwiftApp.exe, use Win Spy to be sure
@@ -32,9 +32,9 @@ if ErrorLevel <>
     MsgBox, 4,%ScriptName% / %ScriptVersion%, Ready to send all jersey codes to Zwift?
     IfMsgBox Yes
         promo_codes := HttpGet(url)
-        jersey := StrSplit(promo_codes, "`n")
+        jersey := StrSplit(Trim(promo_codes), "`n", "`r")
         for k, v in jersey
-            ControlSend, ahk_parent, p %v% {Enter}, % ZwiftApp_Window
+            ControlSend, ahk_parent, p%v%{Enter}, % ZwiftApp_Window
 }
 
 HttpGet(URL) {

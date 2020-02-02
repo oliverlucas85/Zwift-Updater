@@ -5,7 +5,7 @@
 ---
 Zwift Jersey Fetcher (zjf for short), is a quick little tool I whipped up to load up your Zwift garage (closet?) with all of the public jersey codes currently known. 
 
-I've aggregated and scraped as many as I can publicly share, 57 total jerseys at the moment, and included them in this repository. 
+I've aggregated and scraped as many as I can publicly share, 56 total jerseys at the moment, and included them in this repository. 
 
 This tool will reach out to this repository, pull the manifest of jersey promo codes, and automatically stuff them into your Zwift client. 
 
