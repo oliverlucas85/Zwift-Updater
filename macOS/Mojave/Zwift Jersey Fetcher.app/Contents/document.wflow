@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AMApplicationBuild</key>
+	<string>444.7</string>
+	<key>AMApplicationVersion</key>
+	<string>2.8</string>
+	<key>AMDocumentVersion</key>
+	<string>2</string>
+	<key>actions</key>
+	<array>
+		<dict>
+			<key>action</key>
+			<dict>
+				<key>AMAccepts</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Optional</key>
+					<true/>
+					<key>Types</key>
+					<array>
+						<string>com.apple.applescript.object</string>
+					</array>
+				</dict>
+				<key>AMActionVersion</key>
+				<string>1.0.2</string>
+				<key>AMApplication</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>AMParameterProperties</key>
+				<dict>
+					<key>source</key>
+					<dict/>
+				</dict>
+				<key>AMProvides</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Types</key>
+					<array>
+						<string>com.apple.applescript.object</string>
+					</array>
+				</dict>
+				<key>ActionBundlePath</key>
+				<string>/System/Library/Automator/Run AppleScript.action</string>
+				<key>ActionName</key>
+				<string>Run AppleScript</string>
+				<key>ActionParameters</key>
+				<dict>
+					<key>source</key>
+					<string>#################################################################        _._##       /_ _`.      (c) 2020, David A. Desrosiers##       (.(.)|      setuid at gmail dot com##       |\_/'|##       )____`\     Zwift Jersey Fetcher##      //_V _\ \##     ((  |  `(_)   If you find this useful, please drop me##    / \&gt; '   / \   an email, or send me bug reports if you##    \  \.__./  /   find any problems with it.##     `-'    `-'#################################################################on run {input, parameters}	set zapp to "Zwift Jersey Fetcher v1.2 by David A. Desrosiers"	set zconfirm to "Welcome to Zwift Jersey Fetcher!Are you ready to fill up your closet with ALL of the public Zwift jerseys?"	display dialog zconfirm with title zapp buttons {"Cancel", "Continue"} default button 1 with icon file ((path to desktop as text) &amp; "icon.icns")	set zj to "https://raw.githubusercontent.com/desrod/zwift-jersey-fetcher/master/promo-codes.zhq"	tell application "System Events" to tell process "ZwiftApp"		set frontmost to true		windows where title contains "Zwift"		if result is not {} then perform action "AXRaise" of item 1 of result		set zurl to do shell script "curl --compressed " &amp; zj		set zjerseys to paragraphs of zurl		set znum to the number of paragraphs of zurl		say "[[rate 180]] Now loading up your closet with" &amp; znum &amp; "Zwift jerseys!" using "Daniel"		repeat with jersey in zjerseys			keystroke "P"			keystroke jersey			delay 0.5			keystroke return		end repeat	end tellend run</string>
+				</dict>
+				<key>BundleIdentifier</key>
+				<string>com.apple.Automator.RunScript</string>
+				<key>CFBundleVersion</key>
+				<string>1.0.2</string>
+				<key>CanShowSelectedItemsWhenRun</key>
+				<false/>
+				<key>CanShowWhenRun</key>
+				<true/>
+				<key>Category</key>
+				<array>
+					<string>AMCategoryUtilities</string>
+				</array>
+				<key>Class Name</key>
+				<string>RunScriptAction</string>
+				<key>InputUUID</key>
+				<string>DE386A24-457F-47F8-96BA-F0A3D2AD90BE</string>
+				<key>Keywords</key>
+				<array>
+					<string>Run</string>
+				</array>
+				<key>OutputUUID</key>
+				<string>F4F0191F-4060-4478-BD11-7FC587D314D1</string>
+				<key>UUID</key>
+				<string>936448CA-EFF4-4BD8-83E7-EE1BADAD8E83</string>
+				<key>UnlocalizedApplications</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>arguments</key>
+				<dict>
+					<key>0</key>
+					<dict>
+						<key>default value</key>
+						<string>on run {input, parameters}
+	
+	(* Your script goes here *)
+	
+	return input
+end run</string>
+						<key>name</key>
+						<string>source</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>0</string>
+					</dict>
+				</dict>
+				<key>isViewVisible</key>
+				<true/>
+				<key>location</key>
+				<string>587.000000:834.000000</string>
+				<key>nibPath</key>
+				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
+			</dict>
+			<key>isViewVisible</key>
+			<true/>
+		</dict>
+	</array>
+	<key>connectors</key>
+	<dict/>
+	<key>workflowMetaData</key>
+	<dict>
+		<key>workflowTypeIdentifier</key>
+		<string>com.apple.Automator.application</string>
+	</dict>
+</dict>
+</plist>
