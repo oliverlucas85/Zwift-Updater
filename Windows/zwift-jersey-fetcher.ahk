@@ -16,13 +16,13 @@ ScriptVersion = v1.0.1
 #SingleInstance Force
 #NoEnv
 
-url = https://raw.githubusercontent.com/desrod/zwift-jersey-fetcher/master/promo-codes.zhq
+url = https://raw.githubusercontent.com/oliverlucas85/Zwift-Updater/master/promo-codes.zhq
 
-KeyDelayFactor := 5 ;
+KeyDelayFactor := 15 ;
 
 ; Make sure we're sending input to the correct window
 ; or use ahk_exe ZwiftApp.exe, use Win Spy to be sure
-ZwiftApp_Window := "ahk_class GLFW30"
+ZwiftApp_Window := "ahk_exe ZwiftApp.exe"
 
 if ErrorLevel <> 
 {
